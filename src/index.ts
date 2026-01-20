@@ -92,7 +92,7 @@ export class ElectronOllama {
     const { os, arch: architecture } = platformConfig;
 
     const releaseUrlPath = version === 'latest' ? `latest` : `tags/${version}`;
-    const gitHubResponse = await githubFetch(`https://api.github.com/repos/ollama/ollama/releases/${releaseUrlPath}`);
+    const gitHubResponse = await githubFetch(`https://api.github.com/repos/ollama/ollama/releases/${releaseUrlPath}`, this.config.githubToken);
     const releaseData = await gitHubResponse.json() as GitHubRelease;
     const assetName = this.getAssetName(platformConfig);
     const asset = releaseData.assets.find((asset) => asset.name === assetName);
