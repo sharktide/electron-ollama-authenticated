@@ -5,6 +5,7 @@ export type Version = SpecificVersion | LatestVersion;
 export interface ElectronOllamaConfig {
   basePath: string;
   directory?: string;
+  githubToken?: string;
 }
 
 export interface PlatformConfig {
